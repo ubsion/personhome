@@ -43,20 +43,21 @@
 
 ## 自己封装的工具 ##
 
-1.XYYSegmentControl https://github.com/1273011249/XYYSegmentControl
+1.XYYSegmentControl
+[https://github.com/xyyxuyong/XYYSegmentControl][34]
 
 简介：多页签显示，基于HMSegmentedControl再封装，便于使用
 
 ## ios新功能适配 ##
 
  1. IOS11适配
-    - [你可能需要为你的APP适配iOS11][34]
-    - [App界面适配iOS11][35]
-    - [Xcode9下iOS11适配注意事项及无线部署调试][36]
-    - [The file couldn’t be opened because you don’t have permission to view it][37]  
-    - [iOS 11 安全区域适配总结][38]
-    - [iPhone X 设计适配指南 & iOS 11 新特性][39]
-    - [10分钟适配 iOS 11 & iPhone X][40]
+    - [你可能需要为你的APP适配iOS11][35]
+    - [App界面适配iOS11][36]
+    - [Xcode9下iOS11适配注意事项及无线部署调试][37]
+    - [The file couldn’t be opened because you don’t have permission to view it][38]  
+    - [iOS 11 安全区域适配总结][39]
+    - [iPhone X 设计适配指南 & iOS 11 新特性][40]
+    - [10分钟适配 iOS 11 & iPhone X][41]
 
 
   [1]: https://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/
@@ -92,10 +93,11 @@
   [31]: http://www.jianshu.com/p/939db6215436
   [32]: https://galileioo.github.io/posts/UIWebview-JS.html
   [33]: https://github.com/jinht/Marquee
-  [34]: http://www.jianshu.com/p/370d82ba3939
-  [35]: http://www.jianshu.com/p/352f101d6df1
-  [36]: http://shizhifang886.blog.163.com/blog/static/30585110201482912125657/
+  [34]: https://github.com/xyyxuyong/XYYSegmentControl
+  [35]: http://www.jianshu.com/p/370d82ba3939
+  [36]: http://www.jianshu.com/p/352f101d6df1
   [37]: http://shizhifang886.blog.163.com/blog/static/30585110201482912125657/
-  [38]: http://www.jianshu.com/p/efbc8619d56b
-  [39]: https://mp.weixin.qq.com/s/7kM8Qiha7np6_QWfduxD-A
-  [40]: http://www.cocoachina.com/ios/20170925/20642.html
+  [38]: http://shizhifang886.blog.163.com/blog/static/30585110201482912125657/
+  [39]: http://www.jianshu.com/p/efbc8619d56b
+  [40]: https://mp.weixin.qq.com/s/7kM8Qiha7np6_QWfduxD-A
+  [41]: http://www.cocoachina.com/ios/20170925/20642.html
