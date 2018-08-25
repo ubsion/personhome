@@ -1,102 +1,203 @@
-﻿# 备忘录
-    用于收录开发过程中开源库，优秀的文章，自己写的工具类等
-    
-## 目录 ##
+# The Cayman Blog theme
 
-- [性能优化](#性能优化)
-- [高仿项目和完整的app](#高仿项目和完整的app)
-- [服务器相关](#服务器相关)
-- [构建布局UI](#构建布局ui)
-- [webview](#webview)
-- [自己封装的工具](#自己封装的工具)
-- [IOS新功能适配](#ios新功能适配)
+[![Build Status](https://travis-ci.org/lorepirri/cayman-blog.svg?branch=master)](https://travis-ci.org/lorepirri/cayman-blog) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-cayman-blog.svg)](https://badge.fury.io/rb/jekyll-theme-cayman-blog)
 
-## 性能优化 ##
- - [iOS 保持界面流畅的技巧][1]
- - [如何让iOS 保持界面流畅技巧2][2]
- - [iOS图片加载速度极限优化—FastImageCache解析][3]
- - [Flexbox优化][4]-Flexbox     是W3C在2009年提出的一种新的前端页面布局，目前，它已经得到了所有浏览器的支持。而最早将这一页面布局方案引入iOS开发中的是开源库 AsyncDisplayKit。但随着React Native与Weex在动态化领域的兴起， 让iOS开发越来越多的接触到Flexbox 页面布局。相关文章：[FlexBoxLayout][5]、[Yoga][6]
- - [iOS小技巧总结][7] —— 在这里总结一些iOS开发中的小技巧，能大大方便我们的开发，持续更新。
+*Cayman Blog is a Jekyll theme for GitHub Pages. It is based on the nice [Cayman theme](https://pages-themes.github.io/cayman/), with blogging features added. You can [preview the theme to see what it looks like](http://lorepirri.github.io/cayman-blog), or even [use it today](#usage).*
 
-## 高仿项目和完整的app ##
+<img src="https://raw.githubusercontent.com/lorepirri/cayman-blog/master/thumbnail.png" alt="Thumbnail of cayman-blog" style="max-width:30%; border: 1px solid grey;"/> <img src="https://raw.githubusercontent.com/lorepirri/cayman-blog/master/thumbnail-mobile.png" alt="Thumbnail of cayman-blog for mobile" style="width: 239px; height: 424px;"/>
 
- - [iOS 高仿少数派客户端 代码+思路讲解][8]
- - [Github备忘录][9]
- - [iOS开发常用第三方开源框架][10]
+## Install
 
-## 服务器相关 ##
+Cayman Blog Theme has been developed as a Jekyll theme gem for easier use. It is also 100% compatible with GitHub Pages — just with a more involved installation process according to whether you’re _running Jekyll v3.3+ and self-hosting_, or if you’re *hosting with GitHub Pages*.
 
-- [Perfect for swift][11]
+## Self hosting
 
-## 构建布局ui##
+If you’re running Jekyll v3.3+ and **self-hosting** you can quickly install the theme as Ruby gem:
 
- - [Componentkit][12]-FaceBook推出的构造UI的新思路，相关文章[iOS：ComponentKit 使用总结][13]
- - [AsyncDisplayKit][14] - AsyncDisplayKit的基本使用单元是node. ASDisplayNode是一个UIView层之上的封装，就像UIView是对CALayer的封装一样。相关文章[AsyncDisplayKit使用详解][15]、* [AsyncDisplayKit 2.0 Objective-C 教程][16]、*[AsyncDisplayKit2.0教程(上)][17]、* [AsyncDisplayKit2.0教程(下)][18]、即刻技术团队的文章介绍【[AsyncDisplayKit介绍（一）原理和思路][19]、[AsyncDisplayKit介绍（二）布局系统][20]、[AsyncDisplayKit介绍（三）深度优化列表性能][21]】、[复杂布局介绍-AsyncDisplaykit2.0使用「复杂界面流畅性」][22]、比较优秀的教程[AsyncDisplayKit 教程：达到 60 FPS 的滚动帧率][23]、原理解释[iOS 保持界面流畅的技巧][24]
+1. Add this line to your Jekyll site’s Gemfile:
 
-## webview ##
+    ```
+    gem "jekyll-theme-cayman-blog"
+    ```
 
- - [WKWebView][25]-IOS8以后的web加载神器。相关文章[使用WKWebView替换UIWebView][26]、[UIWebview加载进度条实现][27]、[WKWebView进度条实现][28]、实战文章:[WKWebView与OC的交互][29]
- - UIWebView - [解决WebView与OC的交互（JSContext循环引用问题）][30]、[JavaScript和Objective-C交互的那些事(续)][31]、优雅的解决jscontenxt问题:[JS和UIWebview通过JavaScriptCore无法执行iOS本地方法解决方案][32];如果不需要兼容IOS7，可以使用新的WKWebView;
+2. Add this line to your Jekyll site’s _config.yml file:
 
-##轮播##
+    ```
+    theme: jekyll-theme-cayman-blog
+    ```
 
- - Marquee - [Marquee（跑马灯）][33]
+3. Then run Bundler to install the theme gem and dependencies:
 
-## 自己封装的工具 ##
+    ```
+    script/bootstrap
+    ```
 
-1.XYYSegmentControl https://github.com/1273011249/XYYSegmentControl
+## Hosting with GitHub Pages
 
-简介：多页签显示，基于HMSegmentedControl再封装，便于使用
+If you’re *hosting your blog with GitHub Pages* you’ll have to consider this:
 
-## ios新功能适配 ##
+:warning: As stated in the official [Jekyll documentation](https://jekyllrb.com/docs/themes/#installing-a-theme):
 
- 1. IOS11适配
-    - [你可能需要为你的APP适配iOS11][34]
-    - [App界面适配iOS11][35]
-    - [Xcode9下iOS11适配注意事项及无线部署调试][36]
-    - [The file couldn’t be opened because you don’t have permission to view it][37]  
-    - [iOS 11 安全区域适配总结][38]
-    - [iPhone X 设计适配指南 & iOS 11 新特性][39]
-    - [10分钟适配 iOS 11 & iPhone X][40]
+> If you’re publishing your Jekyll site on [GitHub Pages](https://pages.github.com/), note that GitHub Pages supports only some gem-based themes. See [Supported Themes](https://pages.github.com/themes/) in GitHub’s documentation to see which themes are supported.
+
+Therefore, this theme, as well as many others, can not be installed in the same way as the ones officially supported by GitHub Pages (e.g. Cayman, Minima), a bit more effort has to be put on.
+
+The easiest way I found to install _Cayman Blog Theme_, is [installing the theme gem](gem-install), and then [converting the gem-based theme to regular theme](https://jekyllrb.com/docs/themes/#converting-gem-based-themes-to-regular-themes).
+
+Alternatively, for new projects, one could fork the whole theme, and keep only the interesting files.
 
 
-  [1]: https://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/
-  [2]: http://www.cnblogs.com/ioriwellings/p/5011993.html
-  [3]: http://blog.cnbang.net/tech/2578/
-  [4]: http://www.cocoachina.com/ios/20170314/18878.html
-  [5]: https://github.com/LPD-iOS/FlexBoxLayout
-  [6]: https://github.com/facebook/yoga
-  [7]: http://www.jianshu.com/p/4523eafb4cd4
-  [8]: http://www.jianshu.com/p/1265eea814c6
-  [9]: http://www.jianshu.com/p/5c16f21a74de
-  [10]: http://www.cnblogs.com/tinych/p/6556148.html
-  [11]: https://github.com/PerfectlySoft/Perfect
-  [12]: https://github.com/facebook/componentkit
-  [13]: https://segmentfault.com/a/1190000002706612
-  [14]: https://github.com/facebookarchive/AsyncDisplayKit
-  [15]: http://www.jianshu.com/p/a6105e22d394
-  [16]: http://blog.csdn.net/kmyhy/article/details/55656939
-  [17]: http://blog.csdn.net/kmyhy/article/details/54632659
-  [18]: http://blog.csdn.net/kmyhy/article/details/54846322
-  [19]: https://zhuanlan.zhihu.com/p/25371361
-  [20]: https://zhuanlan.zhihu.com/p/26283742
-  [21]: https://zhuanlan.zhihu.com/p/29537687
-  [22]: http://www.jianshu.com/p/afc69cd9e824
-  [23]: http://www.cocoachina.com/swift/20141124/10298.html
-  [24]: https://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/
-  [25]: https://github.com/XFIOSXiaoFeng/WKWebView
-  [26]: http://www.jianshu.com/p/6ba2507445e4
-  [27]: http://www.cnblogs.com/yajunLi/p/6292507.html
-  [28]: http://www.jianshu.com/p/b32b9fb6cb0a
-  [29]: http://www.jianshu.com/p/d8a8913d7e8e
-  [30]: http://www.jianshu.com/p/94bd66874dba
-  [31]: http://www.jianshu.com/p/939db6215436
-  [32]: https://galileioo.github.io/posts/UIWebview-JS.html
-  [33]: https://github.com/jinht/Marquee
-  [34]: http://www.jianshu.com/p/370d82ba3939
-  [35]: http://www.jianshu.com/p/352f101d6df1
-  [36]: http://shizhifang886.blog.163.com/blog/static/30585110201482912125657/
-  [37]: http://shizhifang886.blog.163.com/blog/static/30585110201482912125657/
-  [38]: http://www.jianshu.com/p/efbc8619d56b
-  [39]: https://mp.weixin.qq.com/s/7kM8Qiha7np6_QWfduxD-A
-  [40]: http://www.cocoachina.com/ios/20170925/20642.html
+### Gem Install
+
+This method is preferred for existing _Jekyll blogs_, as well as newly created ones. Notice that the files `index.md`, `about.md`, `contact.md` will be overwritten (only `index.md` is really needed, the other two are just placeholders).
+
+1. Install the theme gem: ` $ gem install jekyll-theme-cayman-blog`
+3. Run `$ gem env gemdir` to know where the gem was installed
+4. Open the folder shown in the output
+5. Open the folder `gems`
+5. Open the theme folder (e.g. `jekyll-theme-cayman-blog-0.0.5`)
+6. Copy all the files into your newly created or existing blog folder    
+7. Leave empty `theme` your site's `_config.yml`:
+
+    ```yml
+    theme:
+    ```
+6. Modify `_config.yml`, `about.md`, `contact.md` for your project
+7. [Customize the theme](customizing)
+
+### Install as a Fork
+
+1. [Fork the repo](https://github.com/lorepirri/cayman-blog)
+2. Clone down the repo with `$ git clone git@github.com:username/reponame.git`
+3. Delete the `screenshot.png` and `screenshot-mobile.png` files
+3. Empty the `_posts` folder
+4. Install bundler and gems with `$ script/bootstrap`
+5. Run Jekyll with `$ script/server`
+6. Modify `_config.yml`, `about.md`, `contact.md` for your project
+7. [Customize the theme](customizing)
+
+## Customizing
+
+### Configuration variables
+
+Cayman Blog will respect the following variables, if set in your site's `_config.yml`:
+
+```yml
+title: [The title of your site]
+description: [A short description of your site's purpose]
+```
+
+Additionally, you may choose to set the following optional variables:
+
+```yml
+show_downloads: ["true" or "false" to indicate whether to provide a download URL]
+google_analytics: [Your Google Analytics tracking ID]
+```
+
+### RSS feeds
+
+To enable RSS feeds and also make visible an RSS feeds button in the footer, the [Jekyll Feed plugin](https://github.com/jekyll/jekyll-feed) must be installed.
+
+Add this line to your site's Gemfile:
+
+```ruby
+gem 'jekyll-feed'
+```
+
+And then add this line to your site's `_config.yml`:
+
+```yml
+gems:
+  - jekyll-feed
+```
+
+For more information about configuring this plugin, see the official [Jekyll Feed plugin](https://github.com/jekyll/jekyll-feed) page.
+
+### SEO tags
+
+Cayman Blog includes simple SEO tags from [jekyll-social-metatags](https://github.com/lorepirri/jekyll-social-metatags). Have a look at the page for its usage.
+
+The usage is compatible with the plugin [Jekyll SEO Tag](https://github.com/jekyll/jekyll-seo-tag), which provides a battle-tested template of crowdsourced best-practices.
+
+To switch to a better SEO tags however, one should install [Jekyll Feed plugin](https://github.com/jekyll/jekyll-feed):
+
+1. Add this line to your site's Gemfile:
+
+    ```ruby
+    gem 'jekyll-seo-tag'
+    ```
+
+2. And then add this line to your site's `_config.yml`:
+
+    ```yml
+    gems:
+      - jekyll-seo-tag
+    ```
+
+3. Replace with the following, the `<!-- jekyll-seo-tag -->` comment in your site's `default.html`:
+
+      ```liquid
+      {% seo %}
+      ```
+
+For more information about configuring this plugin, see the official [Jekyll SEO Tag](https://github.com/jekyll/jekyll-seo-tag) page.
+
+
+### Stylesheet
+
+If you'd like to add your own custom styles:
+
+1. Create a file called `/assets/css/style.scss` in your site
+2. Add the following content to the top of the file, exactly as shown:
+    ```scss
+    ---
+    ---
+
+    @import "{{ site.theme }}";
+    ```
+3. Add any custom CSS (or Sass, including imports) you'd like immediately after the `@import` line
+
+### Layouts
+
+If you'd like to change the theme's HTML layout:
+
+1. [Copy the original template](https://github.com/lorepirri/cayman-blog/blob/master/_layouts/default.html) from the theme's repository<br />(*Pro-tip: click "raw" to make copying easier*)
+2. Create a file called `/_layouts/default.html` in your site
+3. Paste the default layout content copied in the first step
+4. Customize the layout as you'd like
+
+### Sass variables
+
+If you'd like to change the theme's [Sass variables](https://github.com/lorepirri/cayman-blog/blob/master/_sass/variables.scss), set new values before the `@import` line in your stylesheet:
+
+```scss
+$section-headings-color: #0086b3;
+
+@import "{{ site.theme }}";
+```
+
+## Roadmap
+
+See the [open issues](https://github.com/lorepirri/cayman-blog/issues) for a list of proposed features (and known issues).
+
+## Project philosophy
+
+The Cayman Blog theme is intended to make it quick and easy for GitHub Pages users to create their first (or 100th) website. The theme should meet the vast majority of users' needs out of the box, erring on the side of simplicity rather than flexibility, and provide users the opportunity to opt-in to additional complexity if they have specific needs or wish to further customize their experience (such as adding custom CSS or modifying the default layout). It should also look great, but that goes without saying.
+
+## Contributing
+
+Interested in contributing to Cayman Blog? We'd love your help. Cayman Blog is an open source project, built one contribution at a time by users like you. See [the CONTRIBUTING file](CONTRIBUTING.md) for instructions on how to contribute.
+
+### Previewing the theme locally
+
+If you'd like to preview the theme locally (for example, in the process of proposing a change):
+
+1. Clone down the theme's repository (`git clone https://github.com/lorepirri/cayman-blog`)
+2. `cd` into the theme's directory
+3. Run `script/bootstrap` to install the necessary dependencies
+4. Run `script/server` to start the preview server
+5. Visit [`localhost:4000`](http://localhost:4000) in your browser to preview the theme
+
+### Running tests
+
+The theme contains a minimal test suite, to ensure a site with the theme would build successfully. To run the tests, simply run `script/cibuild`. You'll need to run `script/bootstrap` one before the test script will work.

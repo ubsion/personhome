@@ -1,127 +1,136 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
   <head>
-    <meta charset="UTF-8">
 
-<!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>备忘录 | home</title>
-<meta name="generator" content="Jekyll v3.7.3.1" />
-<meta property="og:title" content="备忘录" />
-<meta property="og:locale" content="en_US" />
-<link rel="canonical" href="https://1273011249.github.io/home/" />
-<meta property="og:url" content="https://1273011249.github.io/home/" />
-<meta property="og:site_name" content="home" />
-<script type="application/ld+json">
-{"@type":"WebSite","headline":"备忘录","url":"https://1273011249.github.io/home/","name":"home","@context":"http://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Non social metatags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/home/assets/css/style.css?v=0fc1f7fd677346591757ae4db7d58144fb1c20b8">
+
+    {% if page.title %}
+      {% assign page-title = page.title | escape %}
+    {% else %}
+      {% assign page-title = site.title | escape %}
+    {% endif %}
+
+    <title>{{ page-title }}</title>
+
+    {% if site.gems contains "jekyll-seo-tag" %}
+      <!-- jekyll-seo-tag -->
+    {% else %}
+      {% include social-metatags.html %}
+    {% endif %}
+
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+
+    {% if site.gems contains "jekyll-feed" %}
+      <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+    {% endif %}
+
+    <link rel="shortcut icon" href="{{ site.url }}/favicon.ico">
+    <meta name="robots" content="noarchive">
+
+    <!-- <link rel="alternate" media="only screen and (max-width: 640px)" href="">
+    <link rel="alternate" media="handheld" href=""> -->
+
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   </head>
   <body>
+
+    {% include site-header.html %}
+
+    {% if page.layout == 'home' %}
+      {% assign page-tagline = site.description | default: site.github.project_tagline | escape %}
+    {% endif %}
+    {% if page.layout == 'page' %}
+      {% assign page-tagline = page.tagline | escape %}
+    {% endif %}
+    {% if page.layout == 'post' %}
+      {% assign page-tagline = page.tagline | escape  %}
+    {% endif %}
+
     <section class="page-header">
-      <h1 class="project-name">home</h1>
-      <h2 class="project-tagline"></h2>
-      
-        <a href="https://github.com/1273011249/home" class="btn">View on GitHub haha</a>
-      
-      
+      <h1 class="project-name">{{ page-title }}</h1>
+      <h2 class="project-tagline">{{ page-tagline }}</h2>
+      {% if page.layout == 'home' and site.github.is_project_page %}
+          <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
+        {% if site.show_downloads %}
+          <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
+          <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
+        {% endif %}
+      {% endif %}
+      <!-- Post tagline -->
+      {% if page.layout == 'post' %}
+        <h2 class="project-date">
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {% assign date_format = site.cayman-blog.date_format | default: "%b %-d, %Y" %}
+          {{ page.date | date: date_format }}
+        </time>
+        {% assign page_author = page.author | default: site.author | default: nil | escape %}
+        {% if page_author %}
+          • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page_author }}</span></span>
+        {% endif %}
+        </h2>
+      {% endif %}
+      <!-- End: Post tagline -->
     </section>
 
     <section class="main-content">
-      <h1 id="备忘录">备忘录</h1>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>用于收录开发过程中开源库，优秀的文章，自己写的工具类等
-</code></pre></div></div>
 
-<h2 id="目录">目录</h2>
-
-<ul>
-  <li><a href="#性能优化">性能优化</a></li>
-  <li><a href="#高仿项目和完整的app">高仿项目和完整的app</a></li>
-  <li><a href="#服务器相关">服务器相关</a></li>
-  <li><a href="#构建布局ui">构建布局UI</a></li>
-  <li><a href="#webview">webview</a></li>
-  <li><a href="#自己封装的工具">自己封装的工具</a></li>
-  <li><a href="#ios新功能适配">IOS新功能适配</a></li>
-</ul>
-
-<h2 id="性能优化">性能优化</h2>
-<ul>
-  <li><a href="https://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/">iOS 保持界面流畅的技巧</a></li>
-  <li><a href="http://www.cnblogs.com/ioriwellings/p/5011993.html">如何让iOS 保持界面流畅技巧2</a></li>
-  <li><a href="http://blog.cnbang.net/tech/2578/">iOS图片加载速度极限优化—FastImageCache解析</a></li>
-  <li><a href="http://www.cocoachina.com/ios/20170314/18878.html">Flexbox优化</a>-Flexbox     是W3C在2009年提出的一种新的前端页面布局，目前，它已经得到了所有浏览器的支持。而最早将这一页面布局方案引入iOS开发中的是开源库 AsyncDisplayKit。但随着React Native与Weex在动态化领域的兴起， 让iOS开发越来越多的接触到Flexbox 页面布局。相关文章：<a href="https://github.com/LPD-iOS/FlexBoxLayout">FlexBoxLayout</a>、<a href="https://github.com/facebook/yoga">Yoga</a></li>
-  <li><a href="http://www.jianshu.com/p/4523eafb4cd4">iOS小技巧总结</a> —— 在这里总结一些iOS开发中的小技巧，能大大方便我们的开发，持续更新。</li>
-</ul>
-
-<h2 id="高仿项目和完整的app">高仿项目和完整的app</h2>
-
-<ul>
-  <li><a href="http://www.jianshu.com/p/1265eea814c6">iOS 高仿少数派客户端 代码+思路讲解</a></li>
-  <li><a href="http://www.jianshu.com/p/5c16f21a74de">Github备忘录</a></li>
-  <li><a href="http://www.cnblogs.com/tinych/p/6556148.html">iOS开发常用第三方开源框架</a></li>
-</ul>
-
-<h2 id="服务器相关">服务器相关</h2>
-
-<ul>
-  <li><a href="https://github.com/PerfectlySoft/Perfect">Perfect for swift</a></li>
-</ul>
-
-<h2 id="构建布局ui">构建布局ui##</h2>
-
-<ul>
-  <li><a href="https://github.com/facebook/componentkit">Componentkit</a>-FaceBook推出的构造UI的新思路，相关文章<a href="https://segmentfault.com/a/1190000002706612">iOS：ComponentKit 使用总结</a></li>
-  <li><a href="https://github.com/facebookarchive/AsyncDisplayKit">AsyncDisplayKit</a> - AsyncDisplayKit的基本使用单元是node. ASDisplayNode是一个UIView层之上的封装，就像UIView是对CALayer的封装一样。相关文章<a href="http://www.jianshu.com/p/a6105e22d394">AsyncDisplayKit使用详解</a>、* <a href="http://blog.csdn.net/kmyhy/article/details/55656939">AsyncDisplayKit 2.0 Objective-C 教程</a>、<em><a href="http://blog.csdn.net/kmyhy/article/details/54632659">AsyncDisplayKit2.0教程(上)</a>、</em> <a href="http://blog.csdn.net/kmyhy/article/details/54846322">AsyncDisplayKit2.0教程(下)</a>、即刻技术团队的文章介绍【<a href="https://zhuanlan.zhihu.com/p/25371361">AsyncDisplayKit介绍（一）原理和思路</a>、<a href="https://zhuanlan.zhihu.com/p/26283742">AsyncDisplayKit介绍（二）布局系统</a>、<a href="https://zhuanlan.zhihu.com/p/29537687">AsyncDisplayKit介绍（三）深度优化列表性能</a>】、<a href="http://www.jianshu.com/p/afc69cd9e824">复杂布局介绍-AsyncDisplaykit2.0使用「复杂界面流畅性」</a>、比较优秀的教程<a href="http://www.cocoachina.com/swift/20141124/10298.html">AsyncDisplayKit 教程：达到 60 FPS 的滚动帧率</a>、原理解释<a href="https://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/">iOS 保持界面流畅的技巧</a></li>
-</ul>
-
-<h2 id="webview">webview</h2>
-
-<ul>
-  <li><a href="https://github.com/XFIOSXiaoFeng/WKWebView">WKWebView</a>-IOS8以后的web加载神器。相关文章<a href="http://www.jianshu.com/p/6ba2507445e4">使用WKWebView替换UIWebView</a>、<a href="http://www.cnblogs.com/yajunLi/p/6292507.html">UIWebview加载进度条实现</a>、<a href="http://www.jianshu.com/p/b32b9fb6cb0a">WKWebView进度条实现</a>、实战文章:<a href="http://www.jianshu.com/p/d8a8913d7e8e">WKWebView与OC的交互</a></li>
-  <li>UIWebView - <a href="http://www.jianshu.com/p/94bd66874dba">解决WebView与OC的交互（JSContext循环引用问题）</a>、<a href="http://www.jianshu.com/p/939db6215436">JavaScript和Objective-C交互的那些事(续)</a>、优雅的解决jscontenxt问题:<a href="https://galileioo.github.io/posts/UIWebview-JS.html">JS和UIWebview通过JavaScriptCore无法执行iOS本地方法解决方案</a>;如果不需要兼容IOS7，可以使用新的WKWebView;</li>
-</ul>
-
-<p>##轮播##</p>
-
-<ul>
-  <li>Marquee - <a href="https://github.com/jinht/Marquee">Marquee（跑马灯）</a></li>
-</ul>
-
-<h2 id="自己封装的工具">自己封装的工具</h2>
-
-<p>1.XYYSegmentControl https://github.com/1273011249/XYYSegmentControl</p>
-
-<p>简介：多页签显示，基于HMSegmentedControl再封装，便于使用</p>
-
-<h2 id="ios新功能适配">ios新功能适配</h2>
-
-<ol>
-  <li>IOS11适配
-    <ul>
-      <li><a href="http://www.jianshu.com/p/370d82ba3939">你可能需要为你的APP适配iOS11</a></li>
-      <li><a href="http://www.jianshu.com/p/352f101d6df1">App界面适配iOS11</a></li>
-      <li><a href="http://shizhifang886.blog.163.com/blog/static/30585110201482912125657/">Xcode9下iOS11适配注意事项及无线部署调试</a></li>
-      <li><a href="http://shizhifang886.blog.163.com/blog/static/30585110201482912125657/">The file couldn’t be opened because you don’t have permission to view it</a></li>
-      <li><a href="http://www.jianshu.com/p/efbc8619d56b">iOS 11 安全区域适配总结</a></li>
-      <li><a href="https://mp.weixin.qq.com/s/7kM8Qiha7np6_QWfduxD-A">iPhone X 设计适配指南 &amp; iOS 11 新特性</a></li>
-      <li><a href="http://www.cocoachina.com/ios/20170925/20642.html">10分钟适配 iOS 11 &amp; iPhone X</a></li>
-    </ul>
-  </li>
-</ol>
-
-
+      {{ content }}
 
       <footer class="site-footer">
-        
-          <span class="site-footer-owner"><a href="https://github.com/1273011249/home">home</a> is maintained by <a href="https://github.com/1273011249">1273011249</a>.</span>
-        
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+        <!-- SVG icons from https://iconmonstr.com -->
+
+        <!-- Github icon -->
+        <span class="my-span-icon">
+          <a href="{{ site.github.owner_url }}" aria-label="{{ site.github.owner_name }}'s GitHub" title="{{ site.github.owner_name }}'s GitHub">
+            <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </span>
+
+        <!-- Twitter icon -->
+        <span class="my-span-icon">
+          <a href="https://twitter.com/{{ site.twitter.username }}" aria-label="{{ site.github.owner_name }}'s Twitter" title="{{ site.github.owner_name }}'s Twitter">
+            <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/></svg>
+          </a>
+        </span>
+
+        <!-- RSS icon -->
+        {% if site.gems contains "jekyll-feed" %}
+          <span class="my-span-icon">
+            <a href="{{ "/feed.xml" | relative_url }}" aria-label="RSS feed" title="{{ site.github.owner_name }}'s RSS feed">
+              <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3.374 17c-.897 0-1.626-.727-1.626-1.624s.729-1.624 1.626-1.624 1.626.727 1.626 1.624-.729 1.624-1.626 1.624zm3.885 0c-.03-3.022-2.485-5.474-5.511-5.504v-2.406c4.361.03 7.889 3.555 7.92 7.91h-2.409zm4.081 0c-.016-5.297-4.303-9.571-9.592-9.594v-2.406c6.623.023 11.985 5.384 12 12h-2.408z"/></svg>
+            </a>
+          </span>
+        {% endif %}
+        <!-- Contact icon -->
+        {% assign about_page = site.pages | where: "path", "about.md" | first %}
+        {% if about_page.title %}
+          <span class="my-span-icon">
+            <a href="{{ about_page.url | relative_url }}" aria-label="Contact" title="Contact {{ site.github.owner_name }}">
+              <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 6.98l-6.99 5.666-6.991-5.666h13.981zm.01 10h-14v-8.505l7 5.673 7-5.672v8.504z"/></svg>
+            </a>
+          </span>
+        {% endif %}
+
       </footer>
     </section>
 
-    
+    {% if site.google_analytics %}
+      <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', '{{ site.google_analytics }}', 'auto');
+        ga('send', 'pageview');
+      </script>
+    {% endif %}
   </body>
 </html>
-
